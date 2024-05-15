@@ -1,0 +1,7 @@
+# this file contains the names/versions of all Python library dependencies in the project.
+# I'm not sure if these comments are allowed in here, I may need to add these to the Readme.
+# To install these dependencies to run the project, run this command:
+# pip install -r requirements.txt
+
+pyspellchecker
+nltk
