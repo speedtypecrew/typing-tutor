@@ -34,12 +34,12 @@ def calculate_accuracy(text) -> tuple[float, float]:
         
     return (correct_words/total_words, char_accuracy)
 
-# Testing
-# prompt = "The rain in Spain stays mainly on the plain."
-user_text = "The raine in spain stays manly on teh plane"
-word_acc, char_acc = calculate_accuracy(user_text)
+# # Testing
+# # prompt = "The rain in Spain stays mainly on the plain."
+# user_text = "The raine in spain stays manly on teh plane"
+# word_acc, char_acc = calculate_accuracy(user_text)
 
-# print("Prompt:", prompt)
-print("Input:", user_text)
-print(f"Word Accuracy: {word_acc:.2f}")
-print(f"Char Accuracy: {char_acc:.2f}")
+# # print("Prompt:", prompt)
+# print("Input:", user_text)
+# print(f"Word Accuracy: {word_acc:.2f}")
+# print(f"Char Accuracy: {char_acc:.2f}")

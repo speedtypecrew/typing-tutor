@@ -256,5 +256,6 @@ def main():
     tenses = ["past", "present", "future"]
     plural = [1,2]
     sentance = make_sentence( random.choice(plural), random.choice(tenses))
+    return sentance
 
 main()
