@@ -1,4 +1,5 @@
 from time import time_ns
+import math
 
 def wpm(text:str, time_in_ms) -> int:
     # divide text into words

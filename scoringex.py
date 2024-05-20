@@ -12,7 +12,7 @@ class TypingPracticeApp:
         self.setup_window()
         
         self.levels = {
-            1: {"texts": ["Hello World"], "threshold": 100},
+            1: {"texts": ["Hello World"], "threshold": 5},
             2: {"texts": ["A journey of a thousand miles begins with a single step", "All that glitters is not gold"], "threshold": 300},
             3: {"texts": ["To be or not to be, that is the question", "The early bird catches the worm"], "threshold": 500}
         }
@@ -90,7 +90,7 @@ class TypingPracticeApp:
         correct_words = sum(1 for i in range(min(len(words_typed), len(words_expected))) if words_typed[i] == words_expected[i])
         duration = time.time() - self.start_time
         wpm = math.ceil(len(words_typed) / (duration / 60))  
-        score = correct_words * wpm * (1 + 0.1 * (self.current_level - 1)) 
+        score = correct_words * (1 + 0.1 * (self.current_level - 1)) 
 
         return {'correct_words': correct_words, 'wpm': wpm, 'score': score}
 
