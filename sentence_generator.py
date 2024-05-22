@@ -185,7 +185,6 @@ def get_preposition():
     word_p = random.choice(words)
     return word_p
 
-
 def get_prepositional_phrase(quantity):
     """Build and return a prepositional phrase composed
     of three words: a preposition, a determiner, and a
@@ -253,17 +252,10 @@ def get_adverb():
     return word_adv
 
 
-
-
 def main():
-    length = int(input("how many sentances would you like to print "))
     tenses = ["past", "present", "future"]
     plural = [1,2]
-    number = 0
-    while number < length:
-        sentance = make_sentence( random.choice(plural), random.choice(tenses))
-        with open('output.txt', 'a') as file:
-            file.write(f"{sentance}.\n")
-        number += 1
+    sentance = make_sentence( random.choice(plural), random.choice(tenses))
+    return sentance
 
 main()
