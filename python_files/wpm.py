@@ -1,4 +1,5 @@
 from time import time_ns
+import math
 
 def calculate_wpm(text:str, time_in_ms) -> float:
     # divide text into words

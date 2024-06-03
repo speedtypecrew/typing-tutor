@@ -108,7 +108,7 @@ class TypingPracticeApp:
         correct_words = sum(1 for i in range(min(len(words_typed), len(words_expected))) if words_typed[i] == words_expected[i])
         duration = time.time() - self.start_time
         wpm = math.ceil(len(words_typed) / (duration / 60))  
-        score = correct_words * wpm * (1 + 0.1 * (self.current_level - 1)) 
+        score = correct_words * (1 + 0.1 * (self.current_level - 1)) 
 
         return {'correct_words': correct_words, 'wpm': wpm, 'score': score}
 

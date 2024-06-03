@@ -1,25 +1,49 @@
-body {
-    text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
 
-h1 {
-    color: #ff4500;
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
 }
 
-input {
-    padding: 5px;
-    font-size: 16px;
+.logo {
+    font-size: 2em;
+    color: white;
+    user-select: none;
 }
 
-button {
-    background-color: #ff4500;
-    color: #fff;
-    padding: 5px 10px;
-    border: none;
+.navigation a {
+    position: relative;
+    font-size: 1.2em;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation .btnLogin-popup{
+    width: 130px;
+    height: 30px;
+    outline: none;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 6px;
     cursor: pointer;
-}
-
-#result {
-    margin-top: 20px;
+    font-size: 1.1em;
+    color: white;
+    font-weight: 500;
+    margin-left: 40px;
 }
