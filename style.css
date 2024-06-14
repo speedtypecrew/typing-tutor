@@ -138,4 +138,9 @@ body {
     cursor: not-allowed;
 }
 
+.restart-button {
+    display: none;
+    margin-top: 20px;
+}
+
 /* game */
