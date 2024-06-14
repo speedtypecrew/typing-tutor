@@ -19,10 +19,28 @@ header {
     z-index: 99;
 }
 
+
 .logo {
     font-size: 2em;
     color: white;
     user-select: none;
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: white;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navigation a:hover::after {
+    transform: scaleX(0);
 }
 
 .navigation a {
@@ -34,7 +52,7 @@ header {
     margin-left: 40px;
 }
 
-.navigation .btnLogin-popup{
+.navigation .btnLogin-popup {
     width: 130px;
     height: 30px;
     outline: none;
@@ -47,3 +65,77 @@ header {
     font-weight: 500;
     margin-left: 40px;
 }
+
+.navigation .btnLogin-popup:hover {
+    background: white;
+    color: #162938;
+}
+
+
+/* game */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    text-align: center;
+    font-size: 1.2em;
+    color: white;
+    user-select: none;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.word-display {
+    margin-top: 10rem;
+    font-size: 80px;
+    color: black;
+}
+
+.word-input-box {
+    margin-top: 2rem;
+}
+
+.word-input {
+    padding: 0.5rem;
+    width: 300px;
+}
+
+.game-info {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+}
+
+.time,
+.score {
+    font-size: 30px;
+}
+
+.button {
+    width: 200px;
+    height: 35px;
+    border: none;
+    margin-top: 3rem;
+    cursor: pointer;
+}
+
+.loading {
+    cursor: not-allowed;
+}
+
+/* game */
