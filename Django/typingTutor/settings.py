@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # myApps
-    'homePage',
+    'typingTutor_app',
 ]
 
 MIDDLEWARE = [
