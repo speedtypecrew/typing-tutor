@@ -46,6 +46,7 @@ function checkTestStatus() {
         testButtonChange("Game Over");
         clearInterval(testCheckInterval);
         testButton.disabled = true;
+        testWordInput.disabled = true;
         testRestartButton.style.display = "inline-block";
     }
 }
@@ -69,6 +70,7 @@ function countTestDown() {
     testTime > 0 ? testTime-- : isTestPlaying = false;
     if (!isTestPlaying) {
         clearInterval(testTimeInterval);
+        wordInput.disabled = true;
     }
     testTimeDisplay.innerText = testTime;
 }
