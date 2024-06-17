@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2 class="logo">Typing Test</h2>
+        <nav class="navigation">
+            <a href="main.html">Home</a>
+            <a href="test.html">Test</a>
+            <a href="game.html">Game</a>
+            <a href="#">Contact</a>
+            <button class="btnLogin-popup">Login</button>
+        </nav>
+    </header>
+    <div class="word-display test-word-display">
+        Hello
+    </div>
+    <div class="word-input-box test-word-input-box">
+        <input type="text" class="word-input test-word-input" />
+    </div>
+    <div class="game-info test-game-info">
+        <div>
+            time: <span class="time test-time">0</span> seconds
+        </div>
+        <div>
+            score: <span class="score test-score">0</span>
+        </div>
+    </div>
+    <button class="button test-button loading" onclick="runTest()">loading...</button>
+    <button class="restart-button test-restart-button" style="display:none;">Restart Game</button>
+    <script src="test.js"></script>
+</body>
+</html>
