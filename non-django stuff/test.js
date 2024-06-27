@@ -1,4 +1,4 @@
-const Test_Game_Time = 4;
+const Test_Game_Time = 60;
 let testScore = 0;
 let testTime = Test_Game_Time;
 let isTestPlaying = false;
@@ -29,14 +29,20 @@ function runTest() {
     testTime = Test_Game_Time;
     testWordInput.focus();
     testScore = 0;
-    testScoreDisplay.innerText = testScore;
+    updateTestScore();
+    displayNextWord();
     testTimeInterval = setInterval(countTestDown, 1000);
     testCheckInterval = setInterval(checkTestStatus, 50);
     testButtonChange("Playing");
+    testWordInput.disabled = false;
 }
 
 function restartTestGame() {
+    clearInterval(testTimeInterval);
+    clearInterval(testCheckInterval);
     isTestPlaying = false;
+    testWordInput.value = "";
+    testWordInput.disabled = false;
     testRestartButton.style.display = "none";
     runTest();
 }
@@ -52,7 +58,11 @@ function checkTestStatus() {
 }
 
 function getTestWords() {
-    testWords = ["Hello", "Apple", "Banana"];
+    const nouns = ["Apple", "Banana", "Cherry"];
+    const adjectives = ["Happy", "Sad", "Bright"];
+    const verbs = ["Run", "Jump", "Eat"];
+    const adverbs = ["Quickly", "Slowly", "Carefully"];
+    testWords = [...nouns, ...adjectives, ...verbs, ...adverbs];
     testButtonChange("Game Start");
 }
 
@@ -60,17 +70,18 @@ function checkTestMatch() {
     if (testWordInput.value.toLowerCase() === testWordDisplay.innerText.toLowerCase()) {
         testWordInput.value = "";
         testScore++;
-        testScoreDisplay.innerText = testScore;
-        const randomIndex = Math.floor(Math.random() * testWords.length);
-        testWordDisplay.innerText = testWords[randomIndex];
+        updateTestScore();
+        displayNextWord();
     }
 }
 
 function countTestDown() {
-    testTime > 0 ? testTime-- : isTestPlaying = false;
-    if (!isTestPlaying) {
+    if (testTime > 0) {
+        testTime--;
+    } else {
+        isTestPlaying = false;
         clearInterval(testTimeInterval);
-        wordInput.disabled = true;
+        testWordInput.disabled = true;
     }
     testTimeDisplay.innerText = testTime;
 }
@@ -83,4 +94,13 @@ function testButtonChange(text) {
     } else {
         testButton.classList.add('loading');
     }
+}
+
+function updateTestScore() {
+    testScoreDisplay.innerText = testScore;
+}
+
+function displayNextWord() {
+    const randomIndex = Math.floor(Math.random() * testWords.length);
+    testWordDisplay.innerText = testWords[randomIndex];
 }
