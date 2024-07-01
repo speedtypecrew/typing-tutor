@@ -4,7 +4,7 @@ import time
 import random
 import math
 import threading
-from python_files.accuracy_checker import calculate_accuracy
+from accuracy_checker import calculate_accuracy
 from sentence_generator import main as sgmain
 
 
@@ -18,7 +18,7 @@ class TypingPracticeApp:
         
         self.levels = {
             1: {"texts": [sgmain() for _ in range(1)], "threshold": 100},
-            2: {"texts": [sgmain() for _ in range(2)], "threshold": 300},
+            2: {"texts": [sgmain() for _ in range(2)], "threshold": 3},
             3: {"texts": [sgmain() for _ in range(3)], "threshold": 500}
         }
         self.current_level = 1
@@ -31,7 +31,7 @@ class TypingPracticeApp:
 
     def setup_window(self):
         window_width = 600
-        window_height = 200
+        window_height = 300
         screen_width = self.root.winfo_screenwidth()
         screen_height = self.root.winfo_screenheight()
         position_top = int(screen_height / 2 - window_height / 2)

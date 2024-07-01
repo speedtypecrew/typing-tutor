@@ -1,10 +1,11 @@
-const Test_Game_Time = 60;
+const Test_Game_Time = 4;
 let testScore = 0;
 let testTime = Test_Game_Time;
 let isTestPlaying = false;
 let testTimeInterval;
 let testCheckInterval;
 let testWords = [];
+let totalTypedEntries = 0;
 const testWordInput = document.querySelector(".test-word-input");
 const testWordDisplay = document.querySelector(".test-word-display");
 const testScoreDisplay = document.querySelector(".test-score");
@@ -26,6 +27,7 @@ function runTest() {
         return;
     }
     isTestPlaying = true;
+    totalTypedEntries = 0;
     testTime = Test_Game_Time;
     testWordInput.focus();
     testScore = 0;
@@ -54,6 +56,7 @@ function checkTestStatus() {
         testButton.disabled = true;
         testWordInput.disabled = true;
         testRestartButton.style.display = "inline-block";
+        showResults();
     }
 }
 
@@ -70,6 +73,7 @@ function checkTestMatch() {
     if (testWordInput.value.toLowerCase() === testWordDisplay.innerText.toLowerCase()) {
         testWordInput.value = "";
         testScore++;
+        totalTypedEntries++;
         updateTestScore();
         displayNextWord();
     }
@@ -103,4 +107,10 @@ function updateTestScore() {
 function displayNextWord() {
     const randomIndex = Math.floor(Math.random() * testWords.length);
     testWordDisplay.innerText = testWords[randomIndex];
+}
+
+function showResults() {
+    const minutes = Test_Game_Time / 60;
+    const wpm = totalTypedEntries / minutes;
+    alert(`Time's up! Final Score: ${testScore} | Words Per Minute: ${wpm.toFixed(2)}`);
 }
