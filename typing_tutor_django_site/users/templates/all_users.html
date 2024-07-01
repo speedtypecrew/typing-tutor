@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Typing Tutor - List of All Users
+{% endblock %}
+
+
+{% block content %}
+  <h1>Users</h1>
+  
+  <ul>
+    {% for x in myusers %}
+      <li><a href="details/{{ x.id }}">{{ x.firstname }} {{ x.lastname }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
