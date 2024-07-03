@@ -1,7 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
 from .models import User
-import random
 import time
 from django.shortcuts import render
 from .sentence_generator import main as sgmain
@@ -41,7 +40,8 @@ def typing_test(request):
         }
         return render(request, 'practice/results.html', context)
     else:
-        text = sgmain()
+        text_lines = sgmain()
+        text = '\n'.join(text_lines)
         start_time = time.time()
         return render(request, 'practice/typing_test.html', {'text': text})
 
@@ -51,6 +51,6 @@ def calculate_score(text, user_input):
     words_expected = text.split()
     correct_words = sum(1 for i in range(min(len(words_typed), len(words_expected))) if words_typed[i] == words_expected[i])
     duration = time.time() - start_time
-    wpm = int(len(words_typed) / (duration / 60))
-    score = correct_words  # Simplified scoring
+    wpm = int(len(words_typed) / (duration / 60))  
+    score = correct_words  
     return {'correct_words': correct_words, 'wpm': wpm, 'score': score}

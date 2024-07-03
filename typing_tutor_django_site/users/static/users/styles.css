@@ -1,0 +1,70 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 800px;
+    height: 600px;
+    box-sizing: border-box; /* Ensure padding is included in the width and height */
+}
+
+h1 {
+    font-size: 24px;
+}
+
+p {
+    font-size: 18px;
+    margin: 20px 0;
+    white-space: pre-wrap; /* Preserve spaces and line breaks */
+    text-align: left;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+button {
+    padding: 5px 10px; /* Adjust padding to make the button smaller */
+    font-size: 14px; /* Reduce font size */
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    margin-top: 10px; /* Ensure the button has space above */
+    width: auto; /* Set button width to auto to make it shorter */
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.highlight-correct {
+    background-color: #d4edda; /* Light green for correct text */
+}
+
+.highlight-wrong {
+    background-color: #f8d7da; /* Light red for incorrect text */
+}
+
+
+.accuracy-display {
+    margin-top: 10px;
+    font-size: 16px;
+}
