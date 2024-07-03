@@ -10,20 +10,20 @@ from .accuracy_checker import calculate_accuracy
 # Create your views here.
 
 def users(request):
-  myusers = User.objects.all().values()
-  template = loader.get_template('all_users.html')
-  context = {
-    'myusers': myusers,
-  }
-  return HttpResponse(template.render(context, request))
+    myusers = User.objects.all().values()
+    template = loader.get_template('all_users.html')
+    context = {
+        'myusers': myusers,
+    }
+    return HttpResponse(template.render(context, request))
 
 def details(request, id):
-  myuser = User.objects.get(id=id)
-  template = loader.get_template('details.html')
-  context = {
-    'myuser': myuser,
-  }
-  return HttpResponse(template.render(context, request))
+    myuser = User.objects.get(id=id)
+    template = loader.get_template('details.html')
+    context = {
+        'myuser': myuser,
+    }
+    return HttpResponse(template.render(context, request))
 
 # Typing practice functionality
 start_time = 0
