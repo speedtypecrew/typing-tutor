@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Typing Practice</title>
+</head>
+<body>
+    <h1>Type the following text as fast and accurately as you can:</h1>
+    <p id="text">{{ text }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="original_text" value="{{ text }}">
+        <input type="text" name="user_input" size="100">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

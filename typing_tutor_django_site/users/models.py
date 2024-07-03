@@ -20,3 +20,12 @@ class User(models.Model):
 
     def __str__(self):
         return f"{self.fname} {self.lname} ({self.username})"
+    
+class TypingTest(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    original_text = models.TextField()
+    user_input = models.TextField()
+    correct_words = models.IntegerField()
+    wpm = models.FloatField()
+    score = models.IntegerField()
+    date = models.DateTimeField(auto_now_add=True)
