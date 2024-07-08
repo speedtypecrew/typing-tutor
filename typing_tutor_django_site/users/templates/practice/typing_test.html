@@ -2,15 +2,63 @@
 <html>
 <head>
     <title>Typing Practice</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'users/styles.css' %}">
+    <script>
+        function splitTextIntoLines(text, numLines) {
+            const words = text.split(' ');
+            const wordsPerLine = Math.ceil(words.length / numLines);
+            let lines = [];
+            for (let i = 0; i < numLines; i++) {
+                lines.push(words.slice(i * wordsPerLine, (i + 1) * wordsPerLine).join(' '));
+            }
+            return lines.join('\n');
+        }
+
+        function highlightText() {
+            const originalText = document.getElementById('originalText').value;
+            const userInput = document.getElementById('userInput').value;
+            const words = originalText.split('');
+            const userWords = userInput.split('');
+            
+            let highlightedText = '';
+            let correctChars = 0;
+
+            for (let i = 0; i < words.length; i++) {
+                if (i < userWords.length) {
+                    if (words[i] === userWords[i]) {
+                        highlightedText += '<span class="highlight-correct">' + words[i] + '</span>';
+                        correctChars++;
+                    } else {
+                        highlightedText += '<span class="highlight-wrong">' + words[i] + '</span>';
+                    }
+                } else {
+                    highlightedText += '<span class="highlight-incomplete">' + words[i] + '</span>';
+                }
+            }
+            document.getElementById('text').innerHTML = highlightedText.replace(/\n/g, '<br>');
+            
+            const accuracy = (correctChars / userWords.length) * 100;
+            document.getElementById('accuracy').innerText = `Accuracy: ${accuracy.toFixed(2)}%`;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const originalText = document.getElementById('text').innerText;
+            document.getElementById('text').innerHTML = splitTextIntoLines(originalText, 4).replace(/\n/g, '<br>');
+        });
+    </script>
 </head>
 <body>
-    <h1>Type the following text as fast and accurately as you can:</h1>
-    <p id="text">{{ text }}</p>
-    <form method="post">
-        {% csrf_token %}
-        <input type="hidden" name="original_text" value="{{ text }}">
-        <input type="text" name="user_input" size="100">
-        <button type="submit">Submit</button>
-    </form>
+    <div class="container">
+        <h1>Type the following text as fast and accurately as you can:</h1>
+        <p id="text">{{ text }}</p>
+        <form method="post" oninput="highlightText()">
+            {% csrf_token %}
+            <input type="hidden" id="originalText" name="original_text" value="{{ text }}">
+            <input type="text" id="userInput" name="user_input" maxlength="500">
+            <button type="submit">Submit</button>
+        </form>
+        <div id="accuracy" class="accuracy-display">Accuracy: 0%</div>
+    </div>
 </body>
 </html>

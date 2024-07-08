@@ -2,14 +2,18 @@
 <html>
 <head>
     <title>Typing Practice Results</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'users/styles.css' %}">
 </head>
 <body>
-    <h1>Results</h1>
-    <p>Original Text: {{ original_text }}</p>
-    <p>Your Input: {{ user_input }}</p>
-    <p>Correct Words: {{ results.correct_words }}</p>
-    <p>Words Per Minute: {{ results.wpm }}</p>
-    <p>Score: {{ results.score }}</p>
-    <a href="{% url 'typing_test' %}">Try Again</a>
+    <div class="container">
+        <h1>Results</h1>
+        <p>Original Text: {{ original_text }}</p>
+        <p>Your Input: {{ user_input }}</p>
+        <p>Correct Words: {{ results.correct_words }}</p>
+        <p>Words Per Minute: {{ results.wpm }}</p>
+        <p>Score: {{ results.score }}</p>
+        <a href="{% url 'typing_test' %}">Try Again</a>
+    </div>
 </body>
 </html>
