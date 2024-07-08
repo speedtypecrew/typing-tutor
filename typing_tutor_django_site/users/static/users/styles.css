@@ -9,46 +9,47 @@ body {
 }
 
 .container {
+    font-size: 40px; 
     text-align: center;
     background: white;
-    padding: 20px;
+    padding: 40px; 
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    width: 800px;
-    height: 600px;
-    box-sizing: border-box; /* Ensure padding is included in the width and height */
+    width: 1600px;
+    height: 1200px;
+    box-sizing: border-box; 
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 40px; 
 }
 
 p {
-    font-size: 18px;
-    margin: 20px 0;
-    white-space: pre-wrap; /* Preserve spaces and line breaks */
+    font-size: 40px; 
+    margin: 40px 0;
+    white-space: pre-wrap; 
     text-align: left;
 }
 
 input[type="text"] {
     width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    margin-bottom: 10px;
-    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    padding: 20px; 
+    font-size: 40px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
 button {
-    padding: 5px 10px; /* Adjust padding to make the button smaller */
-    font-size: 14px; /* Reduce font size */
+    padding: 10px 20px; 
+    font-size: 20px; 
     cursor: pointer;
     background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
-    box-sizing: border-box; /* Ensure padding and border are included in the width */
-    margin-top: 10px; /* Ensure the button has space above */
-    width: auto; /* Set button width to auto to make it shorter */
+    box-sizing: border-box; 
+    margin-top: 20px; 
+    width: auto; 
 }
 
 button:hover {
@@ -56,15 +57,15 @@ button:hover {
 }
 
 .highlight-correct {
-    background-color: #d4edda; /* Light green for correct text */
+    background-color: #d4edda; 
 }
 
 .highlight-wrong {
-    background-color: #f8d7da; /* Light red for incorrect text */
+    background-color: #f8d7da; 
 }
 
 
 .accuracy-display {
-    margin-top: 10px;
-    font-size: 16px;
+    margin-top: 20px; 
+    font-size: 24px; 
 }
