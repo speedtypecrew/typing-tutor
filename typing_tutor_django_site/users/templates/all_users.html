@@ -1,7 +1,7 @@
 {% extends "master.html" %}
 
 {% block title %}
-  Typing Tutor - List of All Users
+  Typing Tutor - Users
 {% endblock %}
 
 
@@ -10,7 +10,7 @@
   
   <ul>
     {% for x in myusers %}
-      <li><a href="details/{{ x.id }}">{{ x.firstname }} {{ x.lastname }}</a></li>
+      <li><a href="details/{{ x.id }}">{{ x.fname }} {{ x.lname }}</a></li>
     {% endfor %}
   </ul>
 {% endblock %}

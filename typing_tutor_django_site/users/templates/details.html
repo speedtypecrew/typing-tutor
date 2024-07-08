@@ -1,12 +1,12 @@
 {% extends "master.html" %}
 
 {% block title %}
-  Details about {{ mymember.firstname }} {{ mymember.lastname }}
+  Details about {{ myuser.fname }} {{ myuser.lname }}
 {% endblock %}
 
 
 {% block content %}
-  <h1>{{ mymember.firstname }} {{ mymember.lastname }}</h1>
+  <h1>{{ myuser.fname }} {{ myuser.lname }}</h1>
   
   <p>Points: {{ myuser.points }}</p>
   <p>Rank: {{ myuser.rank }}</p>

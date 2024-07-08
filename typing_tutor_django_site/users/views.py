@@ -8,6 +8,10 @@ from .accuracy_checker import calculate_accuracy
 
 # Create your views here.
 
+def main(request):
+    template = loader.get_template('main.html')
+    return HttpResponse(template.render())
+
 def users(request):
     myusers = User.objects.all().values()
     template = loader.get_template('all_users.html')
