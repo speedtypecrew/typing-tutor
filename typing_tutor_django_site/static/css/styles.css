@@ -1,3 +1,10 @@
+/* This is a debug statement, shows the bounding of all elements */
+/* * {
+    border-color: green;
+    border-style: dashed;
+    border-width: 2px;
+} */
+
 body {
     display: flex;
     justify-content: center;
