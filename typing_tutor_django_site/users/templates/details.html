@@ -1,16 +1,23 @@
+<!-- details.html -->
 {% extends "master.html" %}
 
 {% block title %}
   Details about {{ myuser.fname }} {{ myuser.lname }}
 {% endblock %}
 
-
 {% block content %}
   <h1>{{ myuser.fname }} {{ myuser.lname }}</h1>
   
   <p>Points: {{ myuser.points }}</p>
-  <p>Rank: {{ myuser.rank }}</p>
+  <p>Rank: {{ myuser.rank.rankname }}</p>
+  <p>Rank Points: {{ myuser.rank.points }}</p>  <!-- Additional rank details -->
+
+  {% if myuser.rank.icon %}
+  <img src="{{ myuser.rank.icon.url }}" alt="{{ myuser.rank.rankname }}" width="100" height="100">
+  {% else %}
+  <p>No rank icon available</p>
+  {% endif %}
   
-  <p>Back to <a href="/users">Users</a></p>
+  <p>Back to <a href="{% url 'users' %}">Users</a></p>
   
 {% endblock %}

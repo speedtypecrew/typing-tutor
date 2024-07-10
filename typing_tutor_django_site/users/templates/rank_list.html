@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Rank List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Rank List</h1>
+    <p><a href="{% url 'rank_create' %}">Create a New Rank</a></p>  <!-- Link to the create rank page -->
+    <ul>
+        {% for rank in ranks %}
+        <li>
+            <h2>{{ rank.rankname }}</h2>
+            {% if rank.icon %}
+            <img src="{{ rank.icon.url }}" alt="{{ rank.rankname }}" width="100" height="100">
+            {% else %}
+            <p>No icon available</p>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -5,6 +5,10 @@ import time
 from django.shortcuts import render
 from .sentence_generator import main as sgmain
 from .accuracy_checker import calculate_accuracy
+from django.shortcuts import render, redirect
+from .models import Rank, User
+from .forms import RankForm
+from django.template import loader
 
 # Create your views here.
 
@@ -27,6 +31,21 @@ def details(request, id):
         'myuser': myuser,
     }
     return HttpResponse(template.render(context, request))
+
+def rank_create(request):
+    if request.method == 'POST':
+        form = RankForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('rank_list')  # Change this to your desired redirect
+    else:
+        form = RankForm()
+    return render(request, 'rank_form.html', {'form': form})
+
+def rank_list(request):
+    ranks = Rank.objects.all()
+    return render(request, 'rank_list.html', {'ranks': ranks})
+
 
 # Typing practice functionality
 start_time = 0
