@@ -8,8 +8,14 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    {% block header %}{% endblock header %}
+    {% block header %}
+    <nav>
+        <a href="{% url 'main' %}">Main</a>
+    </nav>
+    {% endblock header %}
+    
     {% block content %}{% endblock content %}
+    
     {% block footer %}{% endblock footer %}
 </body>
 </html>
