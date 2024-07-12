@@ -6,23 +6,15 @@
         {% block title %}{% endblock %}
     </title>
     <link rel="stylesheet" href="{% static 'css/main_styles.css' %}">
-    {% comment %} TODO: Fix the CSS. {% endcomment %}
 </head>
 <body>
-<<<<<<< Updated upstream
-    {% block header %}
+    {% include 'header.html' %}
     <nav>
         <a href="{% url 'main' %}">Main</a>
     </nav>
-    {% endblock header %}
     
     {% block content %}{% endblock content %}
     
-    {% block footer %}{% endblock footer %}
-=======
-    {% include "header.html" %}
-    {% block content %}{% endblock content %}
-    {% include "footer.html" %}
->>>>>>> Stashed changes
+    {% comment %} {% include 'footer.html' %} {% endcomment %}
 </body>
 </html>
