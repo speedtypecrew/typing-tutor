@@ -135,12 +135,14 @@ This section should be filled out during Week 13.
 
 1. Put your GitHub link for your team project here: 
 
+https://github.com/speedtypecrew/typing-tutor
+
 2. Complete the following checklist by either indicating "Yes" or "No".  If you indicate "No" then provide an explanation of why beneath the table.
 
 |Question                                                    |Response|
 |------------------------------------------------------------|--------|
-|Is the link above public and working?                       |        |
-|Did you add comments to your code?                          |        |
+|Is the link above public and working?                       |  Yes   |
+|Did you add comments to your code?                          |  Yes   |
 |Did you fully complete the readme.md file?                  |        |
 |Did you put the readme.md file in GitHub in the top folder? |        |
 
