@@ -143,17 +143,18 @@ https://github.com/speedtypecrew/typing-tutor
 |------------------------------------------------------------|--------|
 |Is the link above public and working?                       |  Yes   |
 |Did you add comments to your code?                          |  Yes   |
-|Did you fully complete the readme.md file?                  |        |
-|Did you put the readme.md file in GitHub in the top folder? |        |
+|Did you fully complete the readme.md file?                  |  Yes   |
+|Did you put the readme.md file in GitHub in the top folder? |  Yes   |
 
 3. Referring back to the list of planned requirements in Part 2 above, make a list of all the features and their status (Completed, In Progress, Not Started).  Include in your list features that you added or attempted that were not originally planned.
 
 |Feature #|Status     |Description                                               |
 |---------|-----------|----------------------------------------------------------|
-|         |           |                                                          |
-|         |           |                                                          |
-|         |           |                                                          |
-|         |           |                                                          |
+|    1    |   Done    |                                                          |
+|    2    |Not Started|                                                          |
+|    3    |In Progress|                                                          |
+|    4    |In Progress|                                                          |
+|    5    |Not Started|                                                          |
 
 _Note: Add more rows as needed._
 
