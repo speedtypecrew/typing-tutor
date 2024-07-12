@@ -160,7 +160,7 @@ def make_sentence(quantity, tense):
     adjective = get_adjective()
 
 
-    sentence = f" {get_prepositional_phrase(quantity).capitalize()}, {get_prepositional_phrase(quantity)}, {get_determiner(quantity, adjective)} {adjective} {get_noun(quantity)} {get_adverb()} {get_verb (quantity, tense)}"
+    sentence = f" {get_prepositional_phrase(quantity).capitalize()}, {get_prepositional_phrase(quantity)}, {get_determiner(quantity, adjective)} {adjective} {get_noun(quantity)} {get_adverb()} {get_verb (quantity, tense)}."
     return sentence
 
 def get_preposition():

@@ -35,7 +35,7 @@ def get_verb(quantity, tense):
 
 def make_sentence(quantity, tense):
     adjective = get_adjective()
-    sentence = f"{get_prepositional_phrase(quantity).capitalize()}, {get_prepositional_phrase(quantity)}, {get_determiner(quantity, adjective)} {adjective} {get_noun(quantity)} {get_adverb()} {get_verb(quantity, tense)}"
+    sentence = f"{get_prepositional_phrase(quantity).capitalize()}, {get_prepositional_phrase(quantity)}, {get_determiner(quantity, adjective)} {adjective} {get_noun(quantity)} {get_adverb()} {get_verb(quantity, tense)}.\n"
     return sentence
 
 def get_preposition():
@@ -54,7 +54,7 @@ def get_prepositional_phrase(quantity):
         preposition = get_preposition()
         adjective = get_adjective()
         determiner = get_determiner(2, adjective)
-        return f"{preposition} {adjective} {adjective} {noun}"
+        return f"{preposition} {determiner} {adjective} {noun}"
 
 def get_adjective():
     words = ["ancient", "beautiful", "cold", "dark", "elegant", "fragile", "gloomy", "heavy", "icy", "jolly", "kind", "large", "mysterious", "narrow", "old", "peaceful", "quiet", "rusty", "sunny", "tiny", "ugly", "vast", "wet", "xeric", "young", "zealous", "bright", "creaky", "dusty", "empty", "fuzzy", "golden", "hollow", "intricate", "juicy", "knotted", "luminous", "massive", "noisy", "ornate", "purple", "quaint", "ripe", "smooth", "thick", "velvety", "windy", "exotic", "yellow", "zippy"]
