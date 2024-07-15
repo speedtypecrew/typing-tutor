@@ -1,17 +1,11 @@
-<!-- rank_form.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Create Rank</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</head>
-<body>
-    <h1>Create a New Rank</h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save</button>
-    </form>
-</body>
-</html>
+{% extends "master.html" %}
+
+{% block title %}Create Rank{% endblock title %}
+{% block content %}
+<h1>Create a New Rank</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+{% endblock content %}

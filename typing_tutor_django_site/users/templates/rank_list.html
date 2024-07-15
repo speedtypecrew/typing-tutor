@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Rank List</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</head>
-<body>
+{% extends "master.html" %}
+
+{% block title %}
+Rank List
+{% endblock title %}
+{% block content %}
     <h1>Rank List</h1>
     <p><a href="{% url 'rank_create' %}">Create a New Rank</a></p>  <!-- Link to the create rank page -->
     <ul>
@@ -20,5 +18,4 @@
         </li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock content %}

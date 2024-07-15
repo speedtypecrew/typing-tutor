@@ -1,17 +1,13 @@
 {% extends "master.html" %}
 
 {% block title %}
-  Typing Tutor - Users
+  Typing Tutor - Typing Practice
 {% endblock %}
 
 {% block content %}
-<!DOCTYPE html>
-<html>
-
 <head>
-    <title>Typing Practice</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'users/styles.css' %}">
+    {% comment %} {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'users/styles.css' %}"> {% endcomment %}
     <style>
         body {
             display: flex;
@@ -146,6 +142,4 @@
         </div>
     </div>
 </body>
-
-</html>
 {% endblock %}
