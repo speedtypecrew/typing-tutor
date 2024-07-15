@@ -1,0 +1,43 @@
+<header>
+    <canvas id="banner"></canvas>
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#practice">Practice</a>
+        <a href="#stats">Stats</a>
+        <a href="#about">About</a>
+    </nav>
+</header>
+
+<script>
+    const canvas = document.getElementById('banner');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = 100;
+
+    function drawBall(x, y, radius, color) {
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    function generateBackground() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < 50; i++) {
+            const x = Math.random() * canvas.width;
+            const y = Math.random() * canvas.height;
+            const radius = Math.random() * 20 + 5;
+            const color = `rgba(${Math.random()*255},${Math.random()*255},${Math.random()*255},0.5)`;
+            drawBall(x, y, radius, color);
+        }
+    }
+
+    generateBackground();
+
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        generateBackground();
+    });
+</script>

@@ -65,7 +65,7 @@ def get_prepositional_phrase(quantity):
         preposition = get_preposition()
         adjective = get_adjective()
         determiner = get_determiner(2, adjective)
-        return f"{preposition} {adjective} {adjective} {noun}"
+        return f"{preposition} {determiner} {adjective} {noun}"
 
 def get_adjective():
     words = ["ancient", "beautiful", "cold", "dark", "elegant", "fragile", "gloomy", "heavy", "icy", "jolly", "kind", "large", "mysterious", "narrow", "old", "peaceful", "quiet", "rusty", "sunny", "tiny", "ugly", "vast", "wet", "xeric", "young", "zealous", "bright", "creaky", "dusty", "empty", "fuzzy", "golden", "hollow", "intricate", "juicy", "knotted", "luminous", "massive", "noisy", "ornate", "purple", "quaint", "ripe", "smooth", "thick", "velvety", "windy", "exotic", "yellow", "zippy"]
