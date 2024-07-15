@@ -51,6 +51,6 @@ def calculate_score(text, user_input):
     words_expected = text.split()
     correct_words = sum(1 for i in range(min(len(words_typed), len(words_expected))) if words_typed[i] == words_expected[i])
     duration = time.time() - start_time
-    wpm = int(len(words_typed) / (duration / 60))  
-    score = correct_words  
-    return {'correct_words': correct_words, 'wpm': wpm, 'score': score}
+    words_per_minute = int(len(words_typed) / (duration / 60))  
+    score = int((correct_words / len(words_expected)) * 100) if len(words_expected) > 0 else 0
+    return {'correct_words': correct_words, 'words_per_minute': words_per_minute, 'score': f'{score}%'}

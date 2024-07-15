@@ -1,26 +1,47 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Typing Practice</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'users/styles.css' %}">
-    <script>
-        function splitTextIntoLines(text, numLines) {
-            const words = text.split(' ');
-            const wordsPerLine = Math.ceil(words.length / numLines);
-            let lines = [];
-            for (let i = 0; i < numLines; i++) {
-                lines.push(words.slice(i * wordsPerLine, (i + 1) * wordsPerLine).join(' '));
-            }
-            return lines.join('\n');
+    <style>
+        .stats {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.5em;
         }
 
-        function highlightText() {
+        .stats div {
+            margin-left: 20px;
+        }
+
+        #text {
+            text-align: left;
+            white-space: normal;
+            word-wrap: break-word;
+        }
+
+        #timer {
+            margin-right: auto;
+        }
+    </style>
+    <script>
+        let startTime;
+        let timerInterval;
+        let timerStarted = false;
+
+        function processText(text) {
+            const sentences = text.split(/(?<=[.!?])\s+/);
+            return sentences.join(' ') + (sentences[sentences.length - 1].endsWith('.') ? '' : '.');
+        }
+
+        function highlightText(userInput) {
             const originalText = document.getElementById('originalText').value;
-            const userInput = document.getElementById('userInput').value;
             const words = originalText.split('');
             const userWords = userInput.split('');
-            
+
             let highlightedText = '';
             let correctChars = 0;
 
@@ -36,29 +57,69 @@
                     highlightedText += '<span class="highlight-incomplete">' + words[i] + '</span>';
                 }
             }
-            document.getElementById('text').innerHTML = highlightedText.replace(/\n/g, '<br>');
-            
-            const accuracy = (correctChars / userWords.length) * 100;
+            document.getElementById('text').innerHTML = highlightedText;
+
+            const accuracy = userWords.length > 0 ? (correctChars / userWords.length) * 100 : 0;
+            const elapsedTime = (new Date().getTime() - startTime) / 60000; // time in minutes
+            const wpm = (userWords.length / 5) / elapsedTime;
+
             document.getElementById('accuracy').innerText = `Accuracy: ${accuracy.toFixed(2)}%`;
+            document.getElementById('speed').innerText = `Speed: ${wpm.toFixed(2)} WPM`;
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
+        function startTimer() {
+            startTime = new Date().getTime();
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+
+        function updateTimer() {
+            const elapsedTime = (new Date().getTime() - startTime) / 1000; // time in seconds
+            document.getElementById('timer').innerText = `Timer: ${elapsedTime.toFixed(0)}s`;
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
             const originalText = document.getElementById('text').innerText;
-            document.getElementById('text').innerHTML = splitTextIntoLines(originalText, 4).replace(/\n/g, '<br>');
+            const processedText = processText(originalText);
+            document.getElementById('text').innerText = processedText;
+            document.getElementById('originalText').value = processedText;
+
+            document.addEventListener('keydown', function (event) {
+                const userInputElement = document.getElementById('userInput');
+                if (!timerStarted && event.key.length === 1) {
+                    timerStarted = true;
+                    startTimer();
+                }
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    clearInterval(timerInterval);
+                    document.querySelector('form').submit();
+                } else if (event.key === 'Backspace') {
+                    userInputElement.value = userInputElement.value.slice(0, -1);
+                } else if (event.key.length === 1) {
+                    userInputElement.value += event.key;
+                }
+                highlightText(userInputElement.value);
+            });
         });
     </script>
 </head>
+
 <body>
     <div class="container">
         <h1>Type the following text as fast and accurately as you can:</h1>
         <p id="text">{{ text }}</p>
-        <form method="post" oninput="highlightText()">
+        <form method="post" style="display: none;">
             {% csrf_token %}
             <input type="hidden" id="originalText" name="original_text" value="{{ text }}">
-            <input type="text" id="userInput" name="user_input" maxlength="500">
+            <input type="hidden" id="userInput" name="user_input" maxlength="500">
             <button type="submit">Submit</button>
         </form>
-        <div id="accuracy" class="accuracy-display">Accuracy: 0%</div>
+        <div class="stats">
+            <div id="timer">Timer: 0s</div>
+            <div id="accuracy">Accuracy: 0%</div>
+            <div id="speed">Speed: 0 WPM</div>
+        </div>
     </div>
 </body>
+
 </html>

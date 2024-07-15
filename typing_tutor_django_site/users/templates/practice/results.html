@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Typing Practice Results</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'users/styles.css' %}">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    window.location.href = "{% url 'typing_test' %}";
+                }
+            });
+        });
+    </script>
 </head>
+
 <body>
     <div class="container">
         <h1>Results</h1>
-        <p>Original Text: {{ original_text }}</p>
-        <p>Your Input: {{ user_input }}</p>
         <p>Correct Words: {{ results.correct_words }}</p>
-        <p>Words Per Minute: {{ results.wpm }}</p>
+        <p>Words Per Minute: {{ results.words_per_minute }}</p>
         <p>Score: {{ results.score }}</p>
         <a href="{% url 'typing_test' %}">Try Again</a>
     </div>
 </body>
+
 </html>
