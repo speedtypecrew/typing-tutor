@@ -1,3 +1,10 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Typing Tutor - Users
+{% endblock %}
+
+{% block content %}
 <!DOCTYPE html>
 <html>
 
@@ -6,11 +13,28 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'users/styles.css' %}">
     <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+            margin-top: 20px;
+        }
+
         .stats {
             display: flex;
             align-items: center;
             justify-content: space-between;
             font-size: 0.5em;
+            width: 100%;
+            margin-top: 20px;
         }
 
         .stats div {
@@ -21,6 +45,7 @@
             text-align: left;
             white-space: normal;
             word-wrap: break-word;
+            width: 100%;
         }
 
         #timer {
@@ -123,3 +148,4 @@
 </body>
 
 </html>
+{% endblock %}
