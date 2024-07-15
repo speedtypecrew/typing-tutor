@@ -1,1 +1,8 @@
-__pycache__/
+# __pycache__/
+
+# typing_tutor_django_site/typing_tutor_app/__pycache__
+# typing_tutor_django_site/homepage/__pycache__
+
+# typing_tutor_django_site/users/__pycache__
+
+**/__pycache__/
