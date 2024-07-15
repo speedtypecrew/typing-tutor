@@ -9,9 +9,9 @@
 </head>
 <body>
     {% include 'header.html' %}
-    <nav>
+    {% comment %} <nav>
         <a href="{% url 'main' %}">Main</a>
-    </nav>
+    </nav> {% endcomment %}
     
     {% block content %}{% endblock content %}
     
