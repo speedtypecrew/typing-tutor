@@ -1,6 +1,7 @@
 let startTime;
 let timerInterval;
 let timerStarted = false;
+let shiftPressed = false;
 
 function processText(text) {
     const sentences = text.split(/(?<=[.!?])\s+/);
@@ -167,15 +168,21 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector('form').submit();
         } else if (event.key === 'Backspace') {
             userInputElement.value = userInputElement.value.slice(0, -1);
-        } else if (event.key.length === 1 || event.key === 'Shift') {
-            userInputElement.value += event.key;
+        } else if (event.key === 'Shift') {
+            shiftPressed = true;
+        } else if (event.key.length === 1) {
+            userInputElement.value += shiftPressed ? event.key.toUpperCase() : event.key;
         }
         highlightText(userInputElement.value);
         highlightKey(event.key === 'Shift' ? (event.location === KeyboardEvent.DOM_KEY_LOCATION_RIGHT ? 'shiftright' : 'shift') : event.key);
     });
 
-    document.addEventListener('keyup', function () {
+    document.addEventListener('keyup', function (event) {
         const keyHighlight = document.getElementById('key-highlight');
         keyHighlight.style.display = 'none';
+
+        if (event.key === 'Shift') {
+            shiftPressed = false;
+        }
     });
 });
