@@ -1,0 +1,25 @@
+{% extends "master.html" %}
+
+{% load static %}
+
+{% block title %}
+  Typing Tutor - Login
+{% endblock %}
+
+{% block head %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'static/css/main_styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+{% endblock %}

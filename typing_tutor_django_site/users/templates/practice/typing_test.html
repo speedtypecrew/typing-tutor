@@ -1,5 +1,7 @@
 {% extends "master.html" %}
 
+{% load static %}
+
 {% block title %}
   Typing Tutor - Typing Practice
 {% endblock %}
@@ -14,7 +16,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
@@ -24,13 +25,16 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             width: 80%;
             max-width: 1800px;
+            height: 1200px;
             background: white;
-            padding: 20px;
+            padding: 30px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-size: 1em;
+            margin: 50px auto;
         }
 
         .stats {
@@ -39,7 +43,7 @@
             justify-content: space-between;
             width: 100%;
             margin-top: 20px;
-            font-size: 0.9em;
+            font-size: 2em;
         }
 
         .stats div {
@@ -51,6 +55,7 @@
             white-space: normal;
             word-wrap: break-word;
             width: 100%;
+            font-size: 3em;
         }
 
         #timer {
@@ -63,6 +68,25 @@
 
         .highlight-wrong {
             background-color: #f8d7da;
+        }
+        
+        .keyboard {
+            /* margin-top: 20px; */
+            position: relative;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .keyboard img {
+            width: 100%;
+        }
+
+        .key-highlight {
+            position: absolute;
+            background-color: rgba(0, 255, 0, 0.5);
+            border-radius: 5px;
+            display: none;
         }
     </style>
     <script>
@@ -159,6 +183,11 @@
             <div id="accuracy">Accuracy: 0%</div>
             <div id="speed">Speed: 0 WPM</div>
         </div>
+        <div class="keyboard">
+            <img src="{% static 'images/keyboard_layout.png' %}" alt="Keyboard">
+            <div class="key-highlight" id="key-highlight"></div>
+        </div>
     </div>
+    <script src="{% static 'js/typingTutor.js' %}"></script>
 {% comment %} </body> {% endcomment %}
 {% endblock %}
