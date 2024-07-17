@@ -9,6 +9,8 @@ from django.shortcuts import render, redirect
 from .models import Rank, User
 from .forms import RankForm
 from django.template import loader
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm 
+from django.contrib.auth import login
 
 # Create your views here.
 
@@ -77,3 +79,23 @@ def calculate_score(text, user_input):
     words_per_minute = int(len(words_typed) / (duration / 60))  
     score = int((correct_words / len(words_expected)) * 100) if len(words_expected) > 0 else 0
     return {'correct_words': correct_words, 'words_per_minute': words_per_minute, 'score': f'{score}%'}
+
+def register_view(request):
+    if request.method == "POST": 
+        form = UserCreationForm(request.POST) 
+        if form.is_valid(): 
+            login(request, form.save())
+            return redirect("posts:list")
+    else:
+        form = UserCreationForm()
+    return render(request, "users/register.html", { "form": form })
+
+def login_view(request): 
+    if request.method == "POST": 
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid(): 
+            login(request, form.get_user())
+            return redirect("posts:list")
+    else: 
+        form = AuthenticationForm()
+    return render(request, "users/login.html", { "form": form })
