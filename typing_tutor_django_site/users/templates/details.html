@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block content %}
+<content>
   <h1>{{ myuser.fname }} {{ myuser.lname }}</h1>
   
   <p>Points: {{ myuser.points }}</p>
@@ -19,5 +20,5 @@
   {% endif %}
   
   <p>Back to <a href="{% url 'users' %}">Users</a></p>
-  
+</content>
 {% endblock %}
