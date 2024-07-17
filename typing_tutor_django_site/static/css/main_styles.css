@@ -33,3 +33,7 @@ body {
 .footer p {
   margin: 0;
 }
+
+.navbar a.login {
+  float: right;
+}

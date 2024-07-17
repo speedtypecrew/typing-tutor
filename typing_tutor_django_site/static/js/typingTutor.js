@@ -140,10 +140,10 @@ function highlightKey(key) {
     };
     if (keyCoordinates[key.toLowerCase()]) {
         const coords = keyCoordinates[key.toLowerCase()];
-        keyHighlight.style.left = coords.x + 'px';
-        keyHighlight.style.top = coords.y + 'px';
-        keyHighlight.style.width = coords.width + 'px';
-        keyHighlight.style.height = coords.height + 'px';
+        keyHighlight.style.left = coords.x/1.89 + 'px';
+        keyHighlight.style.top = coords.y/1.9 + 'px';
+        keyHighlight.style.width = coords.width/1.8 + 'px';
+        keyHighlight.style.height = coords.height/1.8 + 'px';
         keyHighlight.style.display = 'block';
     } else {
         keyHighlight.style.display = 'none';

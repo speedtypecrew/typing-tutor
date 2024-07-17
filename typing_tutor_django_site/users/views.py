@@ -99,3 +99,14 @@ def login_view(request):
     else: 
         form = AuthenticationForm()
     return render(request, "users/login.html", { "form": form })
+
+# def signup_view(request):
+#     if request.method == 'POST':
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             # Redirect to a new URL or render a success message
+#             return render(request, 'users/signup_success.html')
+#     else:
+#         form = UserCreationForm()
+#     return render(request, 'users/signup.html', {'form': form})

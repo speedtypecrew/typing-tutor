@@ -3,11 +3,10 @@
 {% load static %}
 
 {% block title %}
-Typing Tutor - Login
+Typing Tutor - Sign Up
 {% endblock %}
 
 {% block content %}
-
 <head>
     <style>
         body {
@@ -55,9 +54,7 @@ Typing Tutor - Login
             margin-bottom: 10px;
         }
 
-        label,
-        input,
-        button {
+        label, input, button {
             padding: 10px;
             margin: 0 5px;
         }
@@ -73,42 +70,28 @@ Typing Tutor - Login
 
         button {
             padding: 10px;
-            width: calc(40% - 10px);
-            background-color: #007bff;
+            width: 100%;
+            background-color: #28a745; /* Using green for sign up */
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            margin-top: 10px;
         }
 
         button:hover {
-            background-color: #0056b3;
-        }
-
-        .button-row {
-            display: flex;
-            justify-content: space-between;
-            width: 80%;
+            background-color: #1e7e34;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h2>Login</h2>
+        <h2>Sign Up</h2>
         <form method="post">
             {% csrf_token %}
-            <div class="form-row">
-                <label for="id_username">Username :</label>
-                <input type="text" name="username" id="id_username" required>
-            </div>
-            <div class="form-row">
-                <label for="id_password">Password :</label>
-                <input type="password" name="password" id="id_password" required>
-            </div>
-            <button type="submit">Login</button>
+            {{ form.as_p }}
+            <button type="submit">Sign Up</button>
         </form>
     </div>
 </body>
