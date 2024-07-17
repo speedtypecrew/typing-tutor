@@ -4,6 +4,7 @@
 Rank List
 {% endblock title %}
 {% block content %}
+<content>
     <h1>Rank List</h1>
     <p><a href="{% url 'rank_create' %}">Create a New Rank</a></p>  <!-- Link to the create rank page -->
     <ul>
@@ -18,4 +19,5 @@ Rank List
         </li>
         {% endfor %}
     </ul>
+</content>
 {% endblock content %}

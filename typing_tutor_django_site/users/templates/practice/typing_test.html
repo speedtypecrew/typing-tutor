@@ -4,12 +4,12 @@
   Typing Tutor - Typing Practice
 {% endblock %}
 
-{% block content %}
-<head>
+{% block logic %}
+{% comment %} <head> {% endcomment %}
     {% comment %} {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'users/styles.css' %}"> {% endcomment %}
     <style>
-        body {
+        {% comment %} body {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -18,7 +18,7 @@
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
-        }
+        } {% endcomment %}
 
         .container {
             display: flex;
@@ -140,9 +140,11 @@
             });
         });
     </script>
-</head>
+{% endblock logic %}
 
-<body>
+{% comment %} </head> {% endcomment %}
+{% block content %}
+{% comment %} <body> {% endcomment %}
     <div class="container">
         <h1>Type the following text as fast and accurately as you can:</h1>
         <p id="text">{{ text }}</p>
@@ -158,5 +160,5 @@
             <div id="speed">Speed: 0 WPM</div>
         </div>
     </div>
-</body>
+{% comment %} </body> {% endcomment %}
 {% endblock %}

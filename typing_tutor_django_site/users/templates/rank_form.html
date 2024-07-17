@@ -2,10 +2,12 @@
 
 {% block title %}Create Rank{% endblock title %}
 {% block content %}
+<content>
 <h1>Create a New Rank</h1>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Save</button>
 </form>
+</content>
 {% endblock content %}

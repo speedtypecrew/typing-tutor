@@ -1,13 +1,33 @@
 <header>
-    <canvas id="banner"></canvas>
+    <style>
+        .banner-container {
+            position: relative;
+        }
+        .banner-title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: black;
+            font-size: 2em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+    </style>    
+    <div class="banner-container">
+        <canvas id="banner"></canvas>
+        <h1 class="banner-title">Typing Tutor</h1>
+    </div>
     <nav class="navbar">
         <a href="{% url 'main' %}">Home</a>
         <a href="{% url 'users' %}">Users</a>
         <a href="{% url 'typing_test' %}">Typing Game</a>
         <a href="{% url 'rank_list' %}">Ranks</a>
-        <a href="#about">About</a>
+        {% comment %} <a href="#about">About</a> {% endcomment %}
     </nav>
 </header>
+
+
 
 <script>
     const canvas = document.getElementById('banner');
