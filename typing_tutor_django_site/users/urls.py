@@ -12,7 +12,7 @@ urlpatterns = [
     path('ranks/', views.rank_list, name='rank_list'),
     path('', views.main, name='main'),
     path('login/', login_view, name='login'),
-    # path('signup/', views.signup_view, name='signup'),
+    path('signup/', views.signup_view, name='signup'),
 ]
 
 if settings.DEBUG:

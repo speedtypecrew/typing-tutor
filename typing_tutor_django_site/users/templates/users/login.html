@@ -7,7 +7,6 @@ Typing Tutor - Login
 {% endblock %}
 
 {% block content %}
-
 <head>
     <style>
         body {
@@ -21,20 +20,13 @@ Typing Tutor - Login
         }
 
         .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 80%;
-            max-width: 600px;
-            height: auto;
-            background: white;
+            width: 500px;
             padding: 20px;
+            background: white;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            font-size: 1.2em;
-            margin: 50px auto;
             text-align: center;
+            margin-top: 50px;
         }
 
         h2 {
@@ -49,48 +41,47 @@ Typing Tutor - Login
         }
 
         .form-row {
-            display: flex;
-            justify-content: center;
             width: 100%;
             margin-bottom: 10px;
+            text-align: left;
         }
 
-        label,
-        input,
-        button {
-            padding: 10px;
-            margin: 0 5px;
+        label, input, button {
+            padding: 8px;
+            margin: 10px 0;
         }
 
         input {
-            flex-grow: 1;
-            width: 70%;
+            width: 90%; 
+            padding: 8px;
+            margin-left: 10px;
         }
 
         label {
-            width: 30%;
+            width: 100%;
+            text-align: left;
         }
 
         button {
+            width: 50%;
             padding: 10px;
-            width: calc(40% - 10px);
-            background-color: #007bff;
+            background-color: #0056b3;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            margin-top: 10px;
+            margin-top: 20px;
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #1e7e34;
         }
 
         .button-row {
             display: flex;
             justify-content: space-between;
-            width: 80%;
+            width: 100%;
         }
     </style>
 </head>
@@ -101,15 +92,28 @@ Typing Tutor - Login
         <form method="post">
             {% csrf_token %}
             <div class="form-row">
-                <label for="id_username">Username :</label>
+                <label for="id_username">Username:</label>
                 <input type="text" name="username" id="id_username" required>
             </div>
             <div class="form-row">
-                <label for="id_password">Password :</label>
+                <label for="id_password">Password:</label>
                 <input type="password" name="password" id="id_password" required>
             </div>
+            
             <button type="submit">Login</button>
+            <button type="button" id="signupButton" data-url="{% url 'signup' %}">Sign Up</button>
+            
         </form>
     </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var signupButton = document.getElementById('signupButton');
+        if (signupButton) {
+            signupButton.addEventListener('click', function() {
+                window.location.href = this.getAttribute('data-url');
+            });
+        }
+    });
+    </script>
 </body>
 {% endblock %}
